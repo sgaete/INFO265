@@ -17,7 +17,7 @@ public class ThirdPersonCamera : MonoBehaviour
 	    // Start is called before the first frame update
     void Start()
     {	
-    	
+
 
         //print(GameObject.FindWithTag("Player").transform.position.x);
 	    //this.enabled = true;
@@ -27,15 +27,15 @@ public class ThirdPersonCamera : MonoBehaviour
     }
 
     void Update(){
-    	currentX += Input.GetAxis("Mouse X");
-    	currentY += Input.GetAxis("Mouse Y");
+    	//currentX += Input.GetAxis("Mouse X");
+    	currentY += Input.GetAxis("Mouse Y")*2;
     	currentY = Mathf.Clamp(currentY, Y_MIN_ANGLE,Y_MAX_ANGLE);
     }
     void LateUpdate(){
     	Vector3 lookAt = GameObject.FindWithTag("Player").transform.position;
     	Vector3 dir = new Vector3(0 ,0 ,-distance);
-    	Quaternion rot = Quaternion.Euler(currentX,currentY,0);
-    	Vector3 prod = new Vector3(rot.x*sensX, rot.y*sensY, dir.z);
+    	Quaternion rot = Quaternion.Euler(0,currentY,0);
+    	Vector3 prod = new Vector3(0, rot.y*sensY, dir.z);
     	camTransform.position = lookAt + prod;
     	camTransform.LookAt(lookAt);
     }
