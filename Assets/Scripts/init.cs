@@ -15,9 +15,10 @@ public class init : MonoBehaviour
     	Object obj = Resources.Load("Meshs/pollito") as GameObject;
         pollito = Instantiate(obj) as GameObject;
         pollito.AddComponent<CharacterController>();
-        pollito.transform.position=new Vector3(0,0.4f,0);
-        pollito.transform.localScale=new Vector3(5, 5, 10);
-        pollito.transform.eulerAngles=new Vector3(0,90,90);
+        //pollito.AddComponent<Rigidbody>(); 
+        pollito.transform.position=new Vector3(0,0.75f,0);
+        pollito.transform.localScale=new Vector3(40, 40, 40);
+        pollito.transform.eulerAngles=new Vector3(-90,180,0);
         pollito.AddComponent<character>();
 
 

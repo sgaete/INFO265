@@ -6,13 +6,17 @@ public class character : MonoBehaviour
 {
     // Start is called before the first frame update
     public float moveSpd=10;
-    public float jumpF=20;
-    public CharacterController controller;
+    public float jumpF=75;
+    public float gScale = 0.75f;
     private Vector3 moveDir;
+    public CharacterController controller;
+    //public Rigidbody rBody;
 
     void Start(){
     	this.tag = "Player";
+    	//rBody = this.GetComponent<Rigidbody>();
         controller = this.GetComponent<CharacterController>();
+        //rBody.mass = 1;
     }
 
 	void Update(){
@@ -21,55 +25,9 @@ public class character : MonoBehaviour
 		if(Input.GetButtonDown("Jump")){
 			moveDir.y = jumpF;
 		}
-
+	moveDir.y = moveDir.y + Physics.gravity.y*gScale;
 	controller.Move(moveDir*Time.deltaTime);
 
 	}
 
-
-
-
 }
-
-
-
-/*void Start()
-    {
-
-        this.tag = "Player";
-        this.transform.position=new Vector3(0,0.5f,0);
-        this.transform.localScale=new Vector3(5, 5, 10);
-        this.transform.eulerAngles=new Vector3(0,90,90);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-		float vel = 0.05f;	
-    	float gvel = 0.75f;
-    	if (Input.GetAxis ("Horizontal")<0.0f)
-		{
-		    Vector3 position = this.transform.localPosition;
-		    position.x-=vel;
-		    this.transform.localPosition = position;
-		}
-		if (Input.GetAxis ("Horizontal")>0.0f)
-		{
-		    Vector3 position = this.transform.localPosition;
-		    position.x+=vel;
-		    this.transform.localPosition = position;
-		}
-		if (Input.GetAxis ("Vertical")>0.0f)
-		{
-		    Vector3 position = this.transform.localPosition;
-		    position.z+=vel;
-		    this.transform.localPosition = position;
-		}
-		if (Input.GetAxis ("Vertical")<0.0f)
-		{
-		    Vector3 position = this.transform.localPosition;
-		    position.z-=vel;
-		    this.transform.localPosition = position;
-		}
-        
-    }*/

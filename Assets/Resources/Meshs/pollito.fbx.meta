@@ -1,14 +1,17 @@
 fileFormatVersion: 2
-guid: fc978f308c719c448ba62af0c0c08ecb
+guid: 33849198ca53d684ca54fe6d7b355cb5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
+    2100000: Cascara
+    2100002: Plumas
+    2100004: Pico
+    2100006: Ojos.001
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Sphere.004
+    4300000: Body.001
   externalObjects: {}
   materials:
     importMaterials: 1
